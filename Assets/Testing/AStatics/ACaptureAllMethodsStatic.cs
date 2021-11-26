@@ -7,6 +7,7 @@ public class ACaptureAllMethodsStatic : MonoBehaviour
     public static string Recorded = "Initialized";
     public static void Record(string content)
     {
+        var s = "asdf"; Debug.Log(s);
         string recordedToFile = "";
         var path = nameof(ACaptureAllMethodsStatic) + ".txt";
         if (System.IO.File.Exists(path))
@@ -17,9 +18,11 @@ public class ACaptureAllMethodsStatic : MonoBehaviour
         var newLines = "\n\n" + Time.realtimeSinceStartup + "\n" + content;
         Recorded += newLines;
         recordedToFile += newLines;
-        System.IO.File.WriteAllText(path, Recorded);
-        Debug.Log("A\n" + Recorded);
-        Debug.Log("B\n" + recordedToFile);
+        System.IO.File.WriteAllText(path, recordedToFile);
+        var lineCount = Recorded.Split('\n').Length;
+        var lineCount2 = recordedToFile.Split('\n').Length;
+        Debug.Log($"A Static {lineCount}\n" + Recorded);
+        Debug.Log($"B File {lineCount2}\n" + recordedToFile);
     }
 
     [UnityEditor.MenuItem("Tools/ACaptureAllMethodsStatic")]
@@ -47,12 +50,12 @@ public class ACaptureAllMethodsStatic : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Record("FixedUpdate()");
+        Record("FixedUpdate()");
     }
 
     private void LateUpdate()
     {
-        //Record("LateUpdate()");
+        Record("LateUpdate()");
     }
 
     private void OnAnimatorIK(int layerIndex)

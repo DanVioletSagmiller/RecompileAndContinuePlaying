@@ -24,6 +24,7 @@ namespace A
             InstTransform = this.transform;
             InstInt = 21;
             InstF = 21.21f;
+            AScriptable.ChangeMe += "Started\n";
         }
 
         void Update()
