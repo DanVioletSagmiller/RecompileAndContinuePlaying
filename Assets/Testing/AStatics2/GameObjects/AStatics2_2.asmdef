@@ -1,0 +1,16 @@
+{
+    "name": "Ast",
+    "rootNamespace": "",
+    "references": [
+        "GUID:0da5cf300e3cd634b984525ddfd850bd"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

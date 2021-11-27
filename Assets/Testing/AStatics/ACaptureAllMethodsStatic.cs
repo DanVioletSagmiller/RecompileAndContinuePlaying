@@ -25,13 +25,15 @@ public class ACaptureAllMethodsStatic : MonoBehaviour
         Debug.Log($"B File {lineCount2}\n" + recordedToFile);
     }
 
-    [UnityEditor.MenuItem("Tools/ACaptureAllMethodsStatic")]
+    // Removed to keep tesing areas clean
+    //[UnityEditor.MenuItem("Tools/ACaptureAllMethodsStatic")]
     public static void MenuClick()
     {
         Record("MenuClick()");
     }
 
-    [UnityEditor.MenuItem("Tools/Clear ACaptureAllMethodsStatic")]
+    // Removed to keep tesing areas clean
+    //[UnityEditor.MenuItem("Tools/Clear ACaptureAllMethodsStatic")]
     public static void Clear()
     {
         var path = nameof(ACaptureAllMethodsStatic) + ".txt";
