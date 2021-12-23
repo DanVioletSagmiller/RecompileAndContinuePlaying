@@ -9,6 +9,7 @@ public class BScoreMaker : MonoBehaviour
     public BLocator Locator;
     private BLocator GetLocator()
     {
+        Debug.Log("GetLocator was called");
         if (Locator != null)
         {
             return Locator;

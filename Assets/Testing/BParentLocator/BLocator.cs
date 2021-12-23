@@ -7,20 +7,19 @@ using UnityEngine;
 /// <summary>Locator Service that is based on parents within </summary>
 public class BLocator : MonoBehaviour
 {
-    private static BLocator _Instance;
-
     // Searches same object and then all parents for BLocator
     public static BLocator Get(BLocator locator, Transform t)
     {
-        if (t == null)
-        {
-            return null;
-        }
 
         if (locator != null)
         {
             //locator.SetParent();
             return locator;
+        }
+
+        if (t == null)
+        {
+            return null;
         }
 
         locator = t.GetComponent<BLocator>();
