@@ -5,7 +5,12 @@ namespace C
     using TMPro;
     using UnityEngine;
 
-    public class ScoreManagerC : MonoBehaviour, IStaticResettableC
+
+    public interface IScoreManagerC
+    {
+        void AddScore(int score);
+    }
+    public class ScoreManagerC : MonoBehaviour, IStaticResettableC, IScoreManagerC
     {
         public static ScoreManagerC Instance;
 

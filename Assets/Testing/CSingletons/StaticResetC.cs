@@ -8,8 +8,7 @@ namespace C
     {
         void ResetStatics();
     }
-
-    [DefaultExecutionOrder(-1000)]
+    
     public class StaticResetC : MonoBehaviour, ISerializationCallbackReceiver
     {
         [SerializeField]
@@ -19,9 +18,13 @@ namespace C
         {
             foreach (var go in GameObject.FindObjectsOfType<GameObject>())
             {
-                foreach (var r in go.GetComponentsInChildren<IStaticResettableC>())
+                foreach (var r in go.GetComponents<IStaticResettableC>())
                 {
-                    this.Resettables.Add((MonoBehaviour)r);
+                    var m = (MonoBehaviour)r;
+                    if (!this.Resettables.Contains(m))
+                    {
+                        this.Resettables.Add(m);
+                    }
                 }
             }
         }

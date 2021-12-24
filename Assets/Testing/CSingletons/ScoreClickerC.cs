@@ -1,6 +1,6 @@
 namespace C
 {
-    // Review: https://youtu.be/Dwj6Ryodty4?list=PLnRmXj9gwMNeFwWtX8ay6UG7mH6pRyggA)
+    // Review: 
     using System;
     using System.Collections;
     using System.Collections.Generic;
