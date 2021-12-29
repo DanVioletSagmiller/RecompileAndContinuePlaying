@@ -1,43 +1,44 @@
-namespace C
-{
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEngine.SceneManagement;
+//namespace C
+//{
+//    using System.Collections.Generic;
+//    using UnityEngine;
+//    using UnityEngine.SceneManagement;
 
-    public interface IStaticResettableC
-    {
-        void ResetStatics();
-    }
-    
-    public class StaticResetC : MonoBehaviour, ISerializationCallbackReceiver
-    {
-        [SerializeField]
-        private List<MonoBehaviour> Resettables = new List<MonoBehaviour>();
+//    public interface IStaticResettableC
+//    {
+//        void ResetStatics();
+//    }
 
-        public void OnBeforeSerialize() 
-        {
-            foreach (var go in GameObject.FindObjectsOfType<GameObject>())
-            {
-                foreach (var r in go.GetComponents<IStaticResettableC>())
-                {
-                    var m = (MonoBehaviour)r;
-                    if (!this.Resettables.Contains(m))
-                    {
-                        this.Resettables.Add(m);
-                    }
-                }
-            }
-        }
+//    public class StaticResetC : MonoBehaviour, ISerializationCallbackReceiver
+//    {
+//        [SerializeField, HideInInspector]
+//        private List<MonoBehaviour> Resettables = new List<MonoBehaviour>();
 
-        public void OnAfterDeserialize()
-        {
-            foreach (var b in this.Resettables)
-            {
-                ((IStaticResettableC)b).ResetStatics();
-            }
+//        public void OnBeforeSerialize()
+//        {
+//            //this.Resettables.Clear();
+//            foreach (var go in GameObject.FindObjectsOfType<GameObject>())
+//            {
+//                foreach (var r in go.GetComponents<IStaticResettableC>())
+//                {
+//                    var m = (MonoBehaviour)r;
+//                    //if (!this.Resettables.Contains(m))
+//                    //{
+//                    this.Resettables.Add(m);
+//                    //}
+//                }
+//            }
+//        }
 
-            Resettables.Clear();
-            // both scene manager and FindObjectsOfType could not operate during OnAfterDeserialize.
-        }
-    }
-}
+//        public void OnAfterDeserialize()
+//        {
+//            foreach (var b in this.Resettables)
+//            {
+//                ((IStaticResettableC)b).ResetStatics();
+//            }
+
+//            Resettables.Clear();
+//            // both scene manager and FindObjectsOfType could not operate during OnAfterDeserialize.
+//        }
+//    }
+//}
